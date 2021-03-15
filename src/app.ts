@@ -1,6 +1,5 @@
 import dotenv from 'dotenv';
 import express from 'express';
-import { NextFunction, Request, Response, Router } from 'express';
 import MasterRouter from './routers/MasterRouter';
 
 
@@ -21,10 +20,9 @@ class Server {
 // initialize server app
 const server = new Server();
 const bodyParser = require('body-parser')
-server.app.use(bodyParser.json());
-server.app.use(bodyParser.urlencoded({extended: false}));
+server.app.use(bodyParser.json());  // for POST
+server.app.use(bodyParser.urlencoded({extended: false})); // for POST
 server.app.use('/', server.router);
-server.app.set('view engine', 'pug');
 
 
 // make server listen on some port

@@ -2,10 +2,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Lego Evaluator</title>
     <script src="js"></script>
+   <!-- <link href="output.css" rel=”stylesheet”> --> <!-- USE THIS LATER WON'T WORK, use CDN for NOW-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&family=Rock+Salt&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
 </head>
 <body>
-<button onclick="hitEndPoint()">Click me</button>
+        <div id="formula">
+            <h1 id="welcomeMessage">LEGO</h1>
+            <div id="formulaFieldWrapper">
+                <input type="text" id="formulaField" placeholder="Formula...">
+            </div>
+            <div id="buttonWrapper">
+                <button id="submitBTN" class="bg-purple-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+                    Submit
+                </button>
+            </div>
+            <h1 id="resultMessage"></h1>
+        </div>
+        <style>
+            #resultMessage{
+                position: absolute;
+                top: 60%;
+                left: 44%;
+                font-size: 5rem;
+            }
+
+            #buttonWrapper {
+                position: absolute;
+                top: 45%;
+                left: 50%;
+               /* text-align: center; */
+            }
+            #welcomeMessage{
+                font-size: 5rem;
+                text-align: center;
+                margin-top: 1%;
+                font-family: 'Rock Salt', cursive;
+            }
+            #formulaField{
+                border: solid purple;
+                border-radius: 1rem;
+                height: 3rem;
+                width: 80%;
+                background-color: rgba(41, 43, 41, 0.95);
+                font-size: 1rem;
+                position: absolute;
+                left: 12%;
+                margin-top: 2%;
+                padding: 0.5%;
+                outline: none;
+            }
+            body{
+                color: white;
+                background-color: rgba(0, 0, 0, 0.95);
+                font-family: 'Noto Sans JP', sans-serif;
+            }
+
+        </style>
 </body>
 </html>
