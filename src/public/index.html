@@ -2,10 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="js"></script>
+    <title>Lego Evaluator</title>
+    <script src="index.js"></script>
+    <link href="index.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&family=Rock+Salt&display=swap&family=Chango&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
+
 <body>
-<button onclick="hitEndPoint()">Click me</button>
+    <h1 id="welcomeMessage">LEGO</h1>
+
+    <div id="formula" class="float">
+
+            <div id="formulaFieldWrapper">
+                <h1>Enter Valid Lego Formula Below</h1>
+                <input type="text" id="formulaField" placeholder="Formula...">
+                <h1 id="resultMessage">RESULT: </h1>
+            </div>
+
+            <div id="buttonWrapper">
+                <button id="submitBTN" class="bg-purple-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+                    Submit
+                </button>
+            </div>
+
+    </div>
+
+    <div id="results" class="float">
+        <h1>History</h1>
+        <textarea id="resultsTextArea" readonly rows="20" cols="18" placeholder="History..."></textarea>
+        <button id="clearBTN" class="bg-blue-500 hover:bg-pink-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">Clear</button>
+    </div>
 </body>
 </html>

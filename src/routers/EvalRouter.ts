@@ -1,20 +1,14 @@
-import { NextFunction, Request, Response, Router } from 'express';
+import { Request, Response, Router } from 'express';
 import Eval from '../controllers/Eval';
-import express from 'express'
 
 class EvalRouter {
     private _router = Router();
-    private _controller = Eval;
 
     get router() {
         return this._router;
     }
 
     constructor() {
-        const app = express();
-      //  const bodyParser = require('body-parser');
-      //  app.use(bodyParser.urlencoded({extended: false}));
-      //  app.use(bodyParser.json());
         this._configure();
     }
 
@@ -24,23 +18,17 @@ class EvalRouter {
     private _configure() {
         const path = require('path');
 
+        // GET
         this._router.get('/', (req: Request, res: Response) => {
             res.status(200).sendFile(path.join(__dirname+'/../public/index.html'));
         })
 
+        // POST, end-point evaluates Lego formula and returns result to requester
         this._router.post('/evaluate', async (req: Request, res: Response) => {
-          //  console.log(req.query);
-            console.log(req.body);
-
-          //  console.log(req.headers);
             const evaluator = new Eval();
-            let result = await evaluator.evaluate(req.body['body']);
+            const result = await evaluator.evaluate(req.body['body']);
             res.status(200).send(result);
         });
-
-        this._router.get('/js', (req: Request, res: Response, next: NextFunction) => {
-            res.status(200).sendFile(path.join(__dirname+'/../public/index.js'));
-        })
     }
 }
 

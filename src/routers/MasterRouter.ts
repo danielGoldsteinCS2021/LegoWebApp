@@ -3,7 +3,7 @@ import EvalRouter from './EvalRouter';
 
 class MasterRouter{
     private _router = Router();
-    private _subrouter = EvalRouter;
+    private _evalrouter = EvalRouter;
 
 
     get router() {
@@ -18,7 +18,7 @@ class MasterRouter{
      * Connect routes to their matching routers.
      */
     private _configure() {
-        this._router.use('/', this._subrouter);
+        this._router.use('/', this._evalrouter);
     }
 }
 

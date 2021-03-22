@@ -1,40 +1,48 @@
-function btClick() {
-  //  evaluate();
-   // const evaluator = new Eval();
-  //  evaluator.evaluate();
-  //  document.write(evaluator.result());
-   // document.write("BIG BOB");
-    evaluate();
+/*
+* Vanilla JS code for index.html file
+* */
+
+window.onload = function () {
+    document.getElementById("submitBTN").addEventListener("click", hitEndPoint);
+    document.getElementById("clearBTN").addEventListener("click", clearHistory);
+    setColor();
 }
 
-
-function evaluate(){
-    let exec = require('child_process').exec, child;
-    let result = 'fuck me';
-    const expr = '5 + 3 * 7'
-    child = exec('java -jar jars/Project.test.jar',
-        (error, stdout, stderr) => {
-            //  this.result = stdout;
-            console.log('stdout: ' + stdout);
-            console.log('stderr: ' + stderr);
-            result = stdout;
-            if (error !== null) {
-                console.log('exec error: ' + error);
-            }
-        });
-    document.write('fjaldaskldsj');
-    return 'YELLLING ';
+// Clears history text area
+function clearHistory(){
+    document.getElementById("resultsTextArea").value = "";
 }
 
-
+// Runs lego formula against evaluator, which is a post end-point
 function hitEndPoint(){
     let xhr = new XMLHttpRequest();
-    xhr.open("POST",'http://localhost:5000/evaluate', true);
+    xhr.open('POST','http://localhost:8080/evaluate', true);
     xhr.setRequestHeader('Content-type', 'application/json');
-    xhr.send(JSON.stringify({body: '5+4'}));
+    const formula = '"'+document.getElementById("formulaField").value+'"';
+    if (formula !== '""') // ensures user doesn't enter a blank formula
+        xhr.send(JSON.stringify({body: formula}));
+    else document.getElementById("resultMessage").innerText = 'RESULT: '; // clear result message
+
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200){
-            alert(xhr.responseText);
+            const result = JSON.parse(xhr.response)['stdout'];
+            document.getElementById("resultMessage").innerText = 'RESULT: '+result;
+            document.getElementById("resultsTextArea").value += 'Formula: '+formula+'\n';
+            document.getElementById("resultsTextArea").value += 'Returned: '+result+'\n';
         }
     }
+
 }
+
+function randomColor() {
+    return '#'+ ('000000' + (Math.random()*0xFFFFFF<<0).toString(16)).slice(-6)
+}
+
+function setColor(){
+    const color = randomColor();
+    document.getElementById('welcomeMessage').style.color = color;
+    document.getElementById('resultMessage').style.color = color;
+    document.getElementById('formulaField').style.borderColor = color;
+    setTimeout(setColor, 1000);
+}
+
