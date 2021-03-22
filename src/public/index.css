@@ -1,0 +1,67 @@
+/*
+Styling of index.html
+*/
+
+body{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.95);
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+button{
+    width: 9rem;
+    height: 4rem;
+}
+
+/* Allows for the formula bar to be horizontal to the history text area*/
+.float {
+    width: 50%;
+    float: left;
+    padding: 20px;
+}
+
+#resultsTextArea{
+    margin-bottom: 1%;
+    margin-top: 1%;
+    padding: 0.5%;
+    color: black;
+    border-radius: 0.33rem;
+}
+
+/* results and formula, when combined cover entire the width of the page */
+#results{
+    width: 20%;
+}
+
+#formula{
+    width: 80%;
+}
+
+/* Message displayed when formula is ran */
+#resultMessage{
+    transition: color 1s;
+    font-family: 'Chango', cursive;
+    font-size: 6rem;
+}
+
+#welcomeMessage{
+    font-size: 6.5rem;
+    text-align: center;
+    margin-top: 1%;
+    transition: color 1s;
+    font-family: 'Chango', cursive;
+}
+
+/* Where users enter their formulas */
+#formulaField{
+    border: solid;
+    transition: border-color 1s;
+    border-radius: 1rem;
+    height: 3rem;
+    width: 100%;
+    background-color: rgba(41, 43, 41, 0.95);
+    font-size: 1rem;
+    margin-top: 0.5%;
+    padding: 0.5%;
+    outline: none;
+}

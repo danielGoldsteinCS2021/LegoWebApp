@@ -1,20 +1,27 @@
+/*
+* Vanilla JS code for index.html file
+* */
+
 window.onload = function () {
     document.getElementById("submitBTN").addEventListener("click", hitEndPoint);
     document.getElementById("clearBTN").addEventListener("click", clearHistory);
     setColor();
 }
 
+// Clears history text area
 function clearHistory(){
     document.getElementById("resultsTextArea").value = "";
 }
 
+// Runs lego formula against evaluator, which is a post end-point
 function hitEndPoint(){
     let xhr = new XMLHttpRequest();
-    xhr.open("POST",'http://localhost:5000/evaluate', true);
+    xhr.open('POST','http://localhost:8080/evaluate', true);
     xhr.setRequestHeader('Content-type', 'application/json');
     const formula = '"'+document.getElementById("formulaField").value+'"';
-    if (formula !== '""')
+    if (formula !== '""') // ensures user doesn't enter a blank formula
         xhr.send(JSON.stringify({body: formula}));
+    else document.getElementById("resultMessage").innerText = 'RESULT: '; // clear result message
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200){
@@ -35,6 +42,7 @@ function setColor(){
     const color = randomColor();
     document.getElementById('welcomeMessage').style.color = color;
     document.getElementById('resultMessage').style.color = color;
-    setTimeout(setColor, 500);
+    document.getElementById('formulaField').style.borderColor = color;
+    setTimeout(setColor, 1000);
 }
 

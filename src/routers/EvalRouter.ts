@@ -1,6 +1,5 @@
-import { NextFunction, Request, Response, Router } from 'express';
+import { Request, Response, Router } from 'express';
 import Eval from '../controllers/Eval';
-import express from 'express'
 
 class EvalRouter {
     private _router = Router();
@@ -10,7 +9,6 @@ class EvalRouter {
     }
 
     constructor() {
-        const app = express();
         this._configure();
     }
 
@@ -25,23 +23,12 @@ class EvalRouter {
             res.status(200).sendFile(path.join(__dirname+'/../public/index.html'));
         })
 
-        // POST
+        // POST, end-point evaluates Lego formula and returns result to requester
         this._router.post('/evaluate', async (req: Request, res: Response) => {
             const evaluator = new Eval();
-            let result = await evaluator.evaluate(req.body['body']);
-            console.log('RES '+ result);
+            const result = await evaluator.evaluate(req.body['body']);
             res.status(200).send(result);
         });
-
-        // GET
-        this._router.get('/js', (req: Request, res: Response) => {
-            res.status(200).sendFile(path.join(__dirname+'/../public/index.js'));
-        })
-
-        /* GET FOR CSS
-        this._router.get('/css', (req: Request, res: Response) => {
-            res.status(200).sendFile(path.join(__dirname+'/../../output.css'));
-        }); */
     }
 }
 
