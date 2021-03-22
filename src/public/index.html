@@ -8,60 +8,92 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&family=Rock+Salt&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet">
 
 </head>
 <body>
-        <div id="formula">
-            <h1 id="welcomeMessage">LEGO</h1>
+    <h1 id="welcomeMessage">LEGO</h1>
+    <div id="formula" class="float">
+
             <div id="formulaFieldWrapper">
+                <h1>Enter Valid Lego Formula Below</h1>
                 <input type="text" id="formulaField" placeholder="Formula...">
+                <h1 id="resultMessage">RESULT: </h1>
             </div>
+
             <div id="buttonWrapper">
                 <button id="submitBTN" class="bg-purple-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
                     Submit
                 </button>
             </div>
-            <h1 id="resultMessage"></h1>
-        </div>
-        <style>
-            #resultMessage{
-                position: absolute;
-                top: 60%;
-                left: 44%;
-                font-size: 5rem;
-            }
 
-            #buttonWrapper {
-                position: absolute;
-                top: 45%;
-                left: 50%;
-               /* text-align: center; */
-            }
-            #welcomeMessage{
-                font-size: 5rem;
-                text-align: center;
-                margin-top: 1%;
-                font-family: 'Rock Salt', cursive;
-            }
-            #formulaField{
-                border: solid purple;
-                border-radius: 1rem;
-                height: 3rem;
-                width: 80%;
-                background-color: rgba(41, 43, 41, 0.95);
-                font-size: 1rem;
-                position: absolute;
-                left: 12%;
-                margin-top: 2%;
-                padding: 0.5%;
-                outline: none;
-            }
-            body{
-                color: white;
-                background-color: rgba(0, 0, 0, 0.95);
-                font-family: 'Noto Sans JP', sans-serif;
-            }
+    </div>
+    <div id="results" class="float">
+        <h1>History</h1>
+        <textarea id="resultsTextArea" readonly rows="20" cols="18" style="color: black"></textarea>
+        <button id="clearBTN" class="bg-blue-500 hover:bg-pink-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">Clear</button>
+    </div>
 
-        </style>
+    <style>
+        .float {
+            width: 50%;
+            float: left;
+            padding: 20px;
+        /*    border: 2px solid red; */
+        }
+
+        button{
+            width: 9rem;
+            height: 4rem;
+        }
+
+        #resultsTextArea{
+            margin: 1%;
+            border-radius: 0.25rem;
+        }
+
+        #results{
+            width: 20%;
+        }
+        #formula{
+            width: 80%;
+        }
+        #resultMessage{
+            transition: color 0.5s;
+            font-family: 'Chango', cursive;
+            font-size: 8rem;
+        }
+
+        #buttonWrapper {
+           /* text-align: center; */
+            padding: 0.1rem;
+        }
+        #welcomeMessage{
+            font-size: 6.5rem;
+            text-align: center;
+            margin-top: 1%;
+            transition: color 0.5s;
+            font-family: 'Chango', cursive;
+        }
+        #formulaField{
+            border: solid purple;
+            border-radius: 1rem;
+            height: 3rem;
+            width: 100%;
+            background-color: rgba(41, 43, 41, 0.95);
+            font-size: 1rem;
+        /*    position: absolute; */
+            left: 12%;
+            margin-top: 0.5%;
+            padding: 0.5%;
+            outline: none;
+        }
+        body{
+            color: white;
+            background-color: rgba(0, 0, 0, 0.95);
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+    </style>
 </body>
 </html>

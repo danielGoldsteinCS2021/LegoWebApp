@@ -8,7 +8,13 @@ class Eval{
     public async evaluate(formula: any | undefined) {
         const {promisify} = require('util');
         const exec = promisify(require('child_process').exec);
-        return await exec('java -jar jars/Lego.jar ' + formula);
+        let result: any;
+        try{
+            result = await exec('java -jar jars/Lego.jar ' + formula);
+        } catch (error){
+            result = {'stdout' : 'invalid\n'};
+        }
+        return result;
     }
 }
 export = Eval;
