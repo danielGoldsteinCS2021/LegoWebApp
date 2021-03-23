@@ -23,9 +23,12 @@ button{
 #resultsTextArea{
     margin-bottom: 1%;
     margin-top: 1%;
-    padding: 0.5%;
+    padding: 1%;
     color: black;
-    border-radius: 0.33rem;
+    border-radius: 1rem;
+    border: 0.25rem solid;
+    transition: border-color 1s;
+    outline: none;
 }
 
 /* results and formula, when combined cover entire the width of the page */
