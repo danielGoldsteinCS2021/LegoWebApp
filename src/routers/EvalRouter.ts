@@ -18,10 +18,10 @@ class EvalRouter {
     private _configure() {
         const path = require('path');
 
-        // GET
+        /* // GET
         this._router.get('/', (req: Request, res: Response) => {
             res.status(200).sendFile(path.join(__dirname+'/../public/index.html'));
-        })
+        }) */
 
         // POST, end-point evaluates Lego formula and returns result to requester
         this._router.post('/evaluate', async (req: Request, res: Response) => {
