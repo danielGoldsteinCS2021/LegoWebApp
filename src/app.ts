@@ -25,6 +25,6 @@ server.app.use(express.static('src/public')); // for index files
 server.app.use('/', server.router);
 
 // make server listen on some port
-((port = process.env.APP_PORT || 5000) => {
+((port = process.env.PORT || 5000) => {
     server.app.listen(port, () => console.log(`> Listening on port ${port}`));
 })();
