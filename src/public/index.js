@@ -43,6 +43,7 @@ function setColor(){
     document.getElementById('welcomeMessage').style.color = color;
     document.getElementById('resultMessage').style.color = color;
     document.getElementById('formulaField').style.borderColor = color;
+    document.getElementById('resultsTextArea').style.borderColor = color;
     setTimeout(setColor, 1000);
 }
 
