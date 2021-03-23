@@ -1,5 +1,6 @@
 # Lego Web App
-A web application for the Lego predicate logic language   
+A web application for the Lego predicate logic language  
+https://lego-web-app.herokuapp.com/   
 :dragon::dragon::dragon::dragon::dragon::dragon::dragon::dragon:
 
 ### Run Instructions 
