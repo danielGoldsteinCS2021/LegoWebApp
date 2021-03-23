@@ -16,7 +16,7 @@ function clearHistory(){
 // Runs lego formula against evaluator, which is a post end-point
 function hitEndPoint(){
     let xhr = new XMLHttpRequest();
-    xhr.open('POST','http://localhost:8080/evaluate', true);
+    xhr.open('POST','https://lego-web-app.herokuapp.com/evaluate', true);
     xhr.setRequestHeader('Content-type', 'application/json');
     const formula = '"'+document.getElementById("formulaField").value+'"';
     if (formula !== '""') // ensures user doesn't enter a blank formula
