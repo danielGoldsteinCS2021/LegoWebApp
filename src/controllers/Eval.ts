@@ -12,7 +12,9 @@ class Eval{
         try{
             result = await exec('java -jar jars/Lego.jar ' + formula);
         } catch (error){
-            result = {'stdout' : 'syntax error\n'};
+            if (error['stdout'] === '')
+                return {'stdout' : 'syntax error\n'};
+            result = {'stdout' : error['stdout']};
         }
         return result;
     }
