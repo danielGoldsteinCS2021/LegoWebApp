@@ -6,6 +6,10 @@ window.onload = function () {
     document.getElementById("submitBTN").addEventListener("click", hitEndPoint);
     document.getElementById("clearBTN").addEventListener("click", clearHistory);
     setColor();
+    document.getElementById('formulaField').addEventListener("keypress", function (event){
+        if (event.key === 'Enter')
+            document.getElementById("submitBTN").click();
+    });
 }
 
 // Clears history text area
