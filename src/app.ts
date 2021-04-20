@@ -18,7 +18,9 @@ class Server {
 
 // initialize server app
 const server = new Server();
+const cors = require('cors');
 const bodyParser = require('body-parser')
+server.app.use(cors());
 server.app.use(bodyParser.json());  // for POST
 server.app.use(bodyParser.urlencoded({extended: false})); // for POST
 server.app.use(express.static('src/public')); // for index files
